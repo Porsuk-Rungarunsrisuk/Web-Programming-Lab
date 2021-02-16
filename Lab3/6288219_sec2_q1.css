@@ -1,0 +1,93 @@
+/* ----------------------------------------------------------
+    Student ID: 6288219
+    Student Name: Porsuk Rungarunsrisuk
+    Section: 2
+ ------------------------------------------------------------ */
+/* Starts your CSS here */ 
+
+/* #1 */
+body{
+    font-family: sans-serif;
+}
+
+/* #2 */
+header, footer {
+    color: #F8F9F9;
+    text-align: center;
+    background-color: #2E4053;
+}
+
+/* #3 */
+header h1{
+    padding: 20px;
+    margin-bottom: 0px;
+}
+
+/* #4 */
+footer p{
+    padding: 5px;
+}
+
+/* #5 */
+.navbar {
+    background-color: #5D6D7E;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+}
+
+/* #6 */
+.navbar li{ 
+    padding: 14px 20px;
+}
+.navbar a{
+    text-decoration: none;
+    color: #FDFEFE;
+}
+
+/* #7 */
+.navbar a:hover{
+    background-color: #85929E;
+}
+
+/* #8 */
+article{
+    width: 80%;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+/* #9 */
+.images{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* #10 */
+img{
+    height: 300px;
+    border-radius: 10px;
+
+}
+img:hover{
+    opacity: 0.8;
+}
+
+/* #11*/
+figcaption{
+    font-style: italic;
+}
+
+/* #12*/
+a.top{
+    display: flex;
+    justify-content: center;
+    background-color: #D7DBDD;
+    text-decoration: none;
+}
+a.top:hover{
+    background-color: #48C9B0;
+}
+

@@ -1,0 +1,156 @@
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        input[type=button] {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+
+        input[type=text] {
+            width: 280px;
+            height: 50px;
+            display: block;
+            margin: 15px auto;
+            padding: 0 10px;
+            font-size: 28px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body style="text-align: center">
+    <form name="FormCalculator">
+        <h1>Simple Calculator</h1>
+        <input name="Screen" id="output" type="Text" size="24" value="0" readonly>
+
+        <input id="btn7" type="Button" value="  7  " onclick=NumPressed(7)>
+        <input id="btn8" type="Button" value="  8  " onclick=NumPressed(8)>
+        <input id="btn9" type="Button" value="  9  " onclick=NumPressed(9)>
+        <input id="btnmultiply" type="Button" value="  *  " onclick=Operation(3)>
+        <br />
+
+        <input id="btn4" type="Button" value="  4" onclick=NumPressed(4)>
+        <input id="btn5" type="Button" value="  5   " onclick=NumPressed(5)>
+        <input id="btn6" type="Button" value="  6  " onclick=NumPressed(6)>
+        <input id="btnminus" type="Button" value="   -   " onclick=Operation(2)>
+
+        <br />
+
+        <input id="btn1" type="Button" value="  1  " onclick=NumPressed(1)>
+        <input id="btn2" type="Button" value="  2  " onclick=NumPressed(2)>
+        <input id="btn3" type="Button" value="  3  " onclick=NumPressed(3)>
+        <input id="btnplus" type="Button" value="  +  " onclick=Operation(1)>
+
+        <br />
+
+        <input id="btnC" type="Button" value="  C  " onclick="">
+        <input id="btn0" type="Button" value="  0  " onclick=NumPressed(0)>
+        <input id="btndecimal" type="Button" value="   .  " onclick=Decimal()>
+        <input id="btndivide" type="Button" value="   /   " onclick=Operation(4)>
+        <br />
+        <input id="btnequals" style="width: 294px" type="Button" value="  =  " onclick=Operation(5)>
+    </form>
+
+    <script>
+        var Calculator = document.FormCalculator;
+        var Accumulate = 0; // to store the result of accumulation
+        var FlagNewNum = false; // To check whether the number is new number
+        var PendingOp = ""; // to store the pending operation
+
+
+        function NumPressed(Num)
+        {
+            // If number button is pressed, show number on the screen
+            //if it is still the same number, add new digit to the the number
+            //else show the new number on the screen
+            let screen = document.querySelector("#output");
+            let numberOnScreen = String(screen.value);
+            if (FlagNewNum || numberOnScreen === "0") {
+                numberOnScreen = Num;
+                FlagNewNum = false;
+            } else {
+                numberOnScreen = numberOnScreen + Num;
+            }
+            screen.value = numberOnScreen;
+        }
+
+        function Operation(Op)
+        {
+            // If operation button is pressed for first time, set the pending operation
+            //else do the arithmetic of the pending opearion 
+            //and set the lastest opeaation as the new pending opeation
+            let Operand = Number(document.querySelector("#output").value);
+
+            if (Op == 5) {
+                if (PendingOp == 1) {
+                    console.log(Accumulate + " + " + Operand);
+                    Accumulate = Accumulate + Operand;
+                } else if (PendingOp == 2) {
+                    console.log(Accumulate + " - " + Operand);
+                    Accumulate = Accumulate - Operand;
+                } else if (PendingOp == 3) {
+                    console.log(Accumulate + " * " + Operand);
+                    Accumulate = Accumulate * Operand;
+                } else if (PendingOp == 4) {
+                    console.log(Accumulate + " / " + Operand);
+                    Accumulate = Accumulate / Operand;
+                }
+
+                console.log(Accumulate);
+                document.querySelector("#output").value = Accumulate;
+                Accumulate = 0;
+                FlagNewNum = true;
+                PendingOp = "";
+
+                return;
+            }
+            
+            if (PendingOp == 1) {
+                console.log(Accumulate + " + " + Operand);
+                Accumulate = Accumulate + Operand;
+            } else if (PendingOp == 2) {
+                console.log(Accumulate + " - " + Operand);
+                Accumulate = Accumulate - Operand;
+            } else if (PendingOp == 3) {
+                console.log(Accumulate + " * " + Operand);
+                Accumulate = Accumulate * Operand;
+            } else if (PendingOp == 4) {
+                console.log(Accumulate + " / " + Operand);
+                Accumulate = Accumulate / Operand;
+            } else {
+                Accumulate = Operand
+            }
+            console.log(Accumulate);
+            PendingOp = Op;
+            FlagNewNum = true;
+        }
+
+        function Decimal()
+        {
+            //If it is the first time of inserting number, start with 0 and follow by point (0.)
+            //else if it has no decimal point before, add decimal point to the number
+            //then show number on the screen
+            let screen = document.querySelector("#output");
+            let numberOnScreen = String(screen.value);
+            if (FlagNewNum || numberOnScreen == 0) {
+                numberOnScreen = "0.";
+                FlagNewNum = false;
+            } else {
+                numberOnScreen = numberOnScreen + ".";
+            }
+            screen.value = numberOnScreen;   
+        }
+
+        function Clear() 
+        {
+            //Clear Entry
+            Acccumulate = 0;
+            document.getElementById("output").value = 0;
+            PendingOp = "";
+        }
+    </script>
+</body>
+</html>

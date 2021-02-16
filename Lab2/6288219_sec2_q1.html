@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Registration</legend>
+            <label for="">Student ID</label>
+            <input type="text" required pattern="[0-9]{6}" title="######"> <br>
+            <label for="">First name</label>
+            <input type="text" required pattern="[a-zA-Z]{1,}" tittle="Alphabet only"> <br>
+            <label for="">Last name</label>
+            <input type="text" pattern="[a-zA-Z]{1,}" tittle="Alphabet only"> <br>
+            <label for="">Birthday</label>
+            <input type="date" required value="2000-01-01"> <br>
+            <label for="">Gender:</label>
+            <input type="radio" name="g" checked>IDK
+            <input type="radio" name="g">Female
+            <input type="radio" name="g">Male
+            <label for="">Hobbies:</label> <br>
+            <input type="checkbox" name="h">Basketball
+            <input type="checkbox" name="h">Football
+            <input type="checkbox" name="h">Programming
+            <input type="checkbox" name="h">Photography
+            <input type="checkbox" name="h">Gaming <br>
+            <button type="submit">Submit</button>
+            <button type="clear">Clear</button>
+
+
+            
+        </fieldset>
+    </form>
+</body>
+</html>

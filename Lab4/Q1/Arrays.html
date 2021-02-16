@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <script>
+        let meAndTheBoys = ['Porsuk', 'Palm', 'Pan', 'Poot', 'Pee', 'Porn'];
+        console.log('Friends array');
+        //show default array
+        for(let i = 0; i<meAndTheBoys.length; i++){
+            console.log(meAndTheBoys[i]);
+        }
+        //show number of items in array
+        console.log('The number of items in friends array is ', meAndTheBoys.length);
+        //Sorted array
+        console.log('The SORTED friends array');
+        let AndBoysmeThe = meAndTheBoys.sort();
+        for(let i = 0; i<AndBoysmeThe.length; i++){
+            console.log(AndBoysmeThe[i]);
+        }
+        //Reverse array
+        console.log('The REVERSED friends array');
+        let BoysTheAndme = AndBoysmeThe.reverse();
+        for(let i = 0; i<BoysTheAndme.length; i++){
+            console.log(BoysTheAndme[i]);
+        }
+        //The LAST one got REJECTED!
+        console.log('The friends array after REMOVING the LAST item')
+        BoysTheAndme.pop();
+        let PAIN = BoysTheAndme;
+        for(let i = 0; i<PAIN.length; i++){
+            console.log(PAIN[i]);
+        }
+        //The new one replaced but Palm will be in my heart forever
+        PAIN.push("New friend");
+        for(let i = 0; i<PAIN.length; i++){
+            console.log(PAIN[i]);
+        }
+
+    </script>
+</body>
+</html>
